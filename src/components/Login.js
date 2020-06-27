@@ -33,7 +33,7 @@ function Login() {
 	const [loading, setLoading] = React.useState(false);
 	const responseGoogle = (res) => {
 		if (res.error) {
-			return console.log(res.error);
+			return console.log(res);
 		}
 		setLoading(true);
 		try {
