@@ -85,11 +85,12 @@ function App() {
 		const getRequests = async () => {
 			const res = await fetch(`${process.env.REACT_APP_GET_REQUEST_API}`);
 			const collection = await res.json();
-			if (collection.length > 0) {
-				const requests = collection.requests.filter(
+			if (collection.requests.length > 0) {
+				let requests = collection.requests.filter(
 					(r) => r.googleId === user.googleId
 				);
-				setAllRequests(requests);
+				const all = requests.reverse();
+				setAllRequests(all);
 			}
 		};
 		getRequests();
